@@ -1,9 +1,17 @@
 #! /bin/bash
+ ################################################################################
+ #										#
+ #    Скрипт встановлення і налаштування протоколу мережного доступу до ФС.	#
+ #    Дозволяє підключати (монтувати) віддалені файлові системи через мережу.	#
+ #										#
+ #  Script installation and configuration of network protocol access to the FS  #
+ #	Allows you to connect (mount) remote file systems over a network	#
+ #										#
+ #		   2013 Roman Sharyi   root.a.roman@gmail.com			#
+ #										#
+ ################################################################################
 
- # Скрипт встановлення і налаштування протоколу мережного доступу до ФС.
- # Дозволяє підключати (монтувати) віддалені файлові системи через мережу.
-
-# Тільки "суперкористувач" може запускати цей скрипт
+# Make sure only root can run our script
 if [ "$(id -u)" != "0" ]; then
    echo -e "\x1b[1;31m[!]\x1b[0m This script must be run as root. Type \x1b[1;32msudo su\x1b[0m" 1>&2
    exit 1
@@ -13,14 +21,11 @@ fi
 while :
 do
 
-echo -e ""
-echo -e "\x1b[1;32m   <S|A|M|B|A> ""opening windows to a wider world"""
-echo -e "  -------------------------------------------------"
-echo -e "             SMB/CIFS networking protocol"
+echo -e "\x1b[1;32m _______ _______ _______ "
+echo -e "|    |  |    ___|     __|  NETWORK FILE SYSTEM server & client "
+echo -e "|       |    ___|__     | -------------------------------------"
+echo -e "|__|____|___|   |_______|        configuration script \x1b[0m"
 echo ""
-     read -p "Press [Enter] key to continue..."
-sudo apt-get install samba
-
 echo -e "\x1b[1;34ms\x1b[0m - server & client install  \x1b[1;34mf\x1b[0m - configure access to nfs-folders"
 echo -e "\x1b[1;34mc\x1b[0m - only client install      \x1b[1;34md\x1b[0m - configure NFS-volume on the client PC"
 echo -e "\x1b[1;34mq\x1b[0m or \x1b[1;34m[Ctrl]+[C]\x1b[0m - exit"
